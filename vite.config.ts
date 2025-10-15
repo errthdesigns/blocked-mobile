@@ -4,6 +4,8 @@
   import path from 'path';
 
   export default defineConfig({
+  // Use correct base path for GitHub Pages deployment under /blocked-mobile/
+  base: '/blocked-mobile/',
     plugins: [react()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
