@@ -1,12 +1,10 @@
-import imgImage15 from "figma:asset/9c7741aabea6e234bce913cb017f081bbdd421e8.png";
-
 export default function Mobile1() {
   return (
     <div className="bg-[#291a01] relative size-full" data-name="mobile-1" style={{ minHeight: "100vh", width: "100%" }}>
       <div className="absolute flex h-[calc(1px*((var(--transform-inner-width)*0.27512326836586)+(var(--transform-inner-height)*0.9614089727401733)))] items-center justify-center left-0 top-[579px] w-[calc(1px*((var(--transform-inner-height)*0.27512326836586)+(var(--transform-inner-width)*0.9614089727401733)))]" style={{ "--transform-inner-width": "334", "--transform-inner-height": "144" } as React.CSSProperties}>
         <div className="flex-none rotate-[344.031deg]">
           <div className="h-[144px] relative w-[334px]" data-name="image 15">
-            <img alt="" className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none size-full" src={imgImage15} />
+            <img alt="" className="absolute inset-0 max-w-none object-50%-50% object-cover pointer-events-none size-full" src="/assets/9c7741aabea6e234bce913cb017f081bbdd421e8.png" />
           </div>
         </div>
       </div>
