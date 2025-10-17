@@ -3,8 +3,8 @@
   import react from '@vitejs/plugin-react-swc';
   import path from 'path';
 
-  export default defineConfig({
-  // Root base for custom domain (cockblock.art)
+export default defineConfig({
+  // Build for root (custom domain) so asset URLs are /assets/... not prefixed
   base: '/',
     plugins: [react()],
     resolve: {
