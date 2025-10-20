@@ -147,6 +147,9 @@
     height: auto;
   }
 
+  /* Force-remove any images on the page */
+  img { display: none !important; }
+
   button, input, select, optgroup, textarea {
     font: inherit;
     font-feature-settings: inherit;
