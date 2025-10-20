@@ -13,20 +13,34 @@
     <script>(function(){
       var missing = "/blocked-mobile/assets/9c7741aabea6234bce913e0b17081bbdd421e8-Duhr0orH.png";
       var transparent = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wwAAgMBgSnnmwAAAABJRU5ErkJggg==";
+      function rewrite(v){ try { return (typeof v === 'string' && v.indexOf(missing) !== -1) ? transparent : v; } catch(e){ return v; } }
       try {
         var desc = Object.getOwnPropertyDescriptor(Image.prototype, 'src');
         if (desc && desc.set) {
           var originalSet = desc.set;
-          Object.defineProperty(Image.prototype, 'src', {
-            set: function(v){
-              try { if (typeof v === 'string' && v.indexOf(missing) !== -1) { v = transparent; } } catch(e){}
-              return originalSet.call(this, v);
-            }
-          });
+          Object.defineProperty(Image.prototype, 'src', { set: function(v){ return originalSet.call(this, rewrite(v)); } });
         }
       } catch(e){}
+      try {
+        var originalSetAttr = HTMLImageElement.prototype.setAttribute;
+        HTMLImageElement.prototype.setAttribute = function(name, value){
+          if (name && name.toLowerCase() === 'src') { value = rewrite(value); }
+          return originalSetAttr.call(this, name, value);
+        };
+      } catch(e){}
+      try {
+        var mo = new MutationObserver(function(muts){
+          muts.forEach(function(m){
+            if (m.type === 'attributes' && m.attributeName === 'src' && m.target && m.target.tagName === 'IMG') {
+              var v = m.target.getAttribute('src');
+              if (v && v.indexOf(missing) !== -1) { m.target.setAttribute('src', transparent); }
+            }
+          });
+        });
+        mo.observe(document.documentElement, { attributes: true, subtree: true, attributeFilter: ['src'] });
+      } catch(e){}
       var originalFetch = window.fetch;
-      window.fetch = function(input, init){
+      window.fetch = function(input){
         try {
           var url = (typeof input === 'string') ? input : (input && input.url) || '';
           if (url.indexOf(missing) !== -1) {
