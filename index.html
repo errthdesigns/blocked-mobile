@@ -9,42 +9,118 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>(function(){try{if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});});}if(window.caches&&caches.keys){caches.keys().then(function(keys){return Promise.all(keys.map(function(k){return caches.delete(k);}));});}}catch(e){}})();</script>
     <style>
-      html,body{height:100%;margin:0;padding:0}
-      body{background:#291a01;color:#ffe7e0;font-family:"Archivo Narrow",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;display:flex;flex-direction:column;min-height:100vh}
-      .container{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:60px 20px 20px 20px;max-width:600px;margin:0 auto;width:100%;box-sizing:border-box}
-      .header{width:100%;max-width:180px;margin-bottom:60px}
-      .header img{width:100%;height:auto;display:block}
-      .content{text-align:center;margin-bottom:60px;width:100%}
-      h1{color:#ff00ff;margin:0 0 30px 0;font-size:42px;font-weight:700;letter-spacing:0.5px}
-      p{margin:20px 0;font-size:20px;line-height:1.6;font-weight:400}
-      .magenta{color:#ff00ff;font-weight:600}
-      .coming-soon{width:100%;max-width:280px;margin:0 auto}
-      .coming-soon img{width:100%;height:auto;display:block}
-      @media (max-width: 480px) {
-        .container{padding:40px 16px 16px 16px}
-        h1{font-size:32px;margin-bottom:25px}
-        p{font-size:18px;margin:18px 0}
-        .header{max-width:150px;margin-bottom:50px}
-        .coming-soon{max-width:220px}
-        .content{margin-bottom:50px}
+      /* 1) Tokens (tweak to taste) */
+      :root{
+        --bg: #291a01;          /* dark brown */
+        --cream: #f6e5d6;       /* warm off-white */
+        --pink: #ff4bd2;        /* brighter Figma pink */
+        --pink-deep: #a0187f;   /* darker border/shadow */
+        --purple: #c21ce6;      /* link purple */
+      }
+
+      /* 2) Base */
+      html, body { height: 100%; }
+      body{
+        margin: 0;
+        background: var(--bg);
+        color: var(--cream);
+        font-family: "Archivo Narrow", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100dvh;
+        padding: calc(20px + env(safe-area-inset-top)) 20px 28px;
+      }
+
+      /* 3) Layout container matches Figma width */
+      .container{
+        width: 100%;
+        max-width: 680px;               /* tighter column for mobile readability */
+        text-align: center;
+      }
+
+      /* 4) Logo */
+      .logo{
+        display: block;
+        margin: 16px auto 28px;
+        height: clamp(84px, 18vw, 120px);   /* scales up on big phones */
+      }
+
+      /* 5) Heading + copy */
+      h1{
+        margin: 8px 0 16px;
+        font-weight: 800;
+        font-size: clamp(36px, 7.2vw, 64px);   /* big like the Figma */
+        line-height: 1.05;                     /* tighter */
+        color: var(--pink);
+      }
+      .copy{
+        margin: 0 auto 18px;
+        max-width: 42ch;                       /* similar column as Figma */
+        font-size: clamp(18px, 4.2vw, 28px);
+        line-height: 1.42;                     /* looser body */
+        letter-spacing: 0.01em;
+      }
+
+      /* Section questions in purple */
+      .copy a{
+        color: var(--purple);
+        font-weight: 800;
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 2px;
+      }
+
+      /* 6) Big pill button */
+      .cta{
+        display: inline-block;
+        margin: 28px auto 8px;
+        padding: 18px 28px;
+        min-width: min(92%, 620px);            /* almost full-width on mobile */
+        border-radius: 22px;
+        background: var(--pink);
+        color: #2a0e20;                         /* deep text on pink for contrast */
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        border: 3px solid var(--pink-deep);
+        box-shadow: 0 6px 0 var(--pink-deep), 0 16px 24px rgba(0,0,0,.35);
+        text-align: center;
+      }
+      .cta:active{ transform: translateY(2px); box-shadow: 0 4px 0 var(--pink-deep), 0 12px 20px rgba(0,0,0,.35); }
+
+      /* 7) Small screens: give a touch more breathing space */
+      @media (max-width: 380px){
+        .copy{ font-size: 17px; }
+        h1{ font-size: 34px; }
       }
     </style>
     </head>
     <body>
     <div class="container">
-        <div class="header">
-          <img src="./assets/images/group-31.png" alt="Cockblock Header" />
-        </div>
-      <div class="content">
-        <h1>Meet Cockblock.</h1>
-        <p>The watermark that protects your art from AI learning. Cockblock is not only a tool that sticks a spanner in the works, it's a badge that shows we stand on the side of humanity.</p>
-        <p><span class="magenta">How does it work?</span> AI rejects nudity, so we've created the first ever penis watermark to paste across your art.</p>
-        <p><span class="magenta">Who are we?</span> We're a collection of creative people who are pro-artist, pro regulation, pro fair-use.</p>
-        <p>That's why Cockblock is, and will always be a free tool.</p>
-      </div>
-        <div class="coming-soon">
-          <img src="./assets/images/group-32.png" alt="Coming Soon" />
-        </div>
+      <img class="logo" src="./assets/images/group-31.png" alt="Cockblock logo" />
+
+      <h1>Meet Cockblock.</h1>
+
+      <p class="copy">
+        The watermark that protects your art from AI learning. Cockblock is not only a tool that sticks a spanner in the works, it's a badge that shows we stand on the side of humanity.
+      </p>
+
+      <p class="copy">
+        <a href="#how">How does it work?</a> AI rejects nudity, so we've created the first ever penis watermark to paste across your art.
+      </p>
+
+      <p class="copy">
+        <a href="#who">Who are we?</a> We're a collection of creative people who are pro-artist, pro regulation, pro fair-use.
+      </p>
+
+      <p class="copy">
+        That's why Cockblock is, and will always be a free tool.
+      </p>
+
+      <a class="cta" href="mailto:hello@cockblock.art">Coming soon…</a>
     </div>
     </body>
   </html>
