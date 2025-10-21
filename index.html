@@ -62,6 +62,9 @@
       .highlight {
         color: #ff1493;
         font-weight: 700;
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
       }
       
       .coming-soon {
@@ -70,10 +73,20 @@
         margin-top: 16px;
       }
       
-      .coming-soon img {
+      .cta-button {
+        background: #ff1493;
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        padding: 18px 28px;
+        border-radius: 12px;
+        border: none;
         width: 100%;
-        height: auto;
-        display: block;
+        max-width: 320px;
+        cursor: pointer;
+        font-family: "Archivo Narrow", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       }
       
       
@@ -100,7 +113,7 @@
     </head>
     <body>
     <div class="container">
-      <img class="logo" src="./assets/images/group-31.png" alt="cockblock logo" />
+      <img class="logo" src="./assets/images/group-31.png" alt="Cockblock logo" />
 
       <p class="copy">
         The watermark that protects your art from AI learning. Cockblock is not only a tool that sticks a spanner in the works, it's a badge that shows we stand on the side of humanity.
@@ -119,7 +132,7 @@
       </p>
 
       <div class="coming-soon">
-        <img src="./assets/images/group-32.png" alt="Coming Soon" />
+        <button class="cta-button">COMING SOON...</button>
       </div>
     </div>
     </body>
