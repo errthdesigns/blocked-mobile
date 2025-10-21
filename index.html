@@ -37,7 +37,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 24px;
+        gap: 20px;
+        padding: 0 20px;
       }
       
       .logo {
@@ -45,6 +46,7 @@
         max-width: 280px;
         height: auto;
         margin-bottom: 8px;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
       }
       
       h1 {
@@ -62,6 +64,7 @@
         margin: 0;
         max-width: 100%;
         text-align: left;
+        width: 100%;
       }
       
       .copy a {
@@ -109,7 +112,8 @@
       @media (max-width: 480px) {
         .container {
           max-width: 320px;
-          gap: 20px;
+          gap: 16px;
+          padding: 0 16px;
         }
         
         .logo {
@@ -127,12 +131,18 @@
         .coming-soon {
           max-width: 280px;
         }
+        
+        .cta-button {
+          max-width: 280px;
+          font-size: 14px;
+          padding: 14px 20px;
+        }
       }
     </style>
     </head>
     <body>
     <div class="container">
-      <img class="logo" src="./assets/images/group-31.png" alt="Cockblock logo" />
+      <img class="logo" src="./assets/images/group-31.png" alt="cockblock logo" />
 
       <h1>Meet Cockblock.</h1>
 
