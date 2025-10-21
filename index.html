@@ -9,92 +9,102 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>(function(){try{if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});});}if(window.caches&&caches.keys){caches.keys().then(function(keys){return Promise.all(keys.map(function(k){return caches.delete(k);}));});}}catch(e){}})();</script>
     <style>
-      /* 1) Tokens (tweak to taste) */
-      :root{
-        --bg: #291a01;          /* dark brown */
-        --cream: #f6e5d6;       /* warm off-white */
-        --pink: #ff4bd2;        /* brighter Figma pink */
-        --pink-deep: #a0187f;   /* darker border/shadow */
-        --purple: #c21ce6;      /* link purple */
-      }
-
-      /* 2) Base */
-      html, body { height: 100%; }
-      body{
+      html, body {
+        height: 100%;
         margin: 0;
-        background: var(--bg);
-        color: var(--cream);
+        padding: 0;
+        background: #291a01;
+        color: #f6e5d6;
         font-family: "Archivo Narrow", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
         text-rendering: optimizeLegibility;
+      }
+      
+      body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        min-height: 100dvh;
-        padding: calc(20px + env(safe-area-inset-top)) 20px 28px;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
       }
-
-      /* 3) Layout container matches Figma width */
-      .container{
+      
+      .container {
         width: 100%;
-        max-width: 680px;               /* tighter column for mobile readability */
+        max-width: 400px;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
       }
-
-      /* 4) Logo */
-      .logo{
-        display: block;
-        margin: 16px auto 28px;
-        height: clamp(84px, 18vw, 120px);   /* scales up on big phones */
+      
+      .logo {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        margin-bottom: 8px;
       }
-
-      /* 5) Heading + copy */
-      h1{
-        margin: 8px 0 16px;
+      
+      h1 {
+        color: #ff4bd2;
+        font-size: 48px;
         font-weight: 800;
-        font-size: clamp(36px, 7.2vw, 64px);   /* big like the Figma */
-        line-height: 1.05;                     /* tighter */
-        color: var(--pink);
+        line-height: 1.1;
+        margin: 0;
+        letter-spacing: -0.02em;
       }
-      .copy{
-        margin: 0 auto 18px;
-        max-width: 42ch;                       /* similar column as Figma */
-        font-size: clamp(18px, 4.2vw, 28px);
-        line-height: 1.42;                     /* looser body */
-        letter-spacing: 0.01em;
+      
+      .copy {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 0;
+        max-width: 100%;
+        text-align: left;
       }
-
-      /* Section questions in purple */
-      .copy a{
-        color: var(--purple);
+      
+      .copy a {
+        color: #c21ce6;
         font-weight: 800;
         text-decoration: underline;
         text-decoration-thickness: 2px;
-        text-underline-offset: 2px;
+        text-underline-offset: 3px;
       }
-
-      /* 6) Big pill button */
-      .cta{
-        display: inline-block;
-        margin: 28px auto 8px;
-        padding: 18px 28px;
-        min-width: min(92%, 620px);            /* almost full-width on mobile */
-        border-radius: 22px;
-        background: var(--pink);
-        color: #2a0e20;                         /* deep text on pink for contrast */
-        font-weight: 900;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        border: 3px solid var(--pink-deep);
-        box-shadow: 0 6px 0 var(--pink-deep), 0 16px 24px rgba(0,0,0,.35);
-        text-align: center;
+      
+      .coming-soon {
+        width: 100%;
+        max-width: 320px;
+        margin-top: 16px;
       }
-      .cta:active{ transform: translateY(2px); box-shadow: 0 4px 0 var(--pink-deep), 0 12px 20px rgba(0,0,0,.35); }
-
-      /* 7) Small screens: give a touch more breathing space */
-      @media (max-width: 380px){
-        .copy{ font-size: 17px; }
-        h1{ font-size: 34px; }
+      
+      .coming-soon img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      
+      @media (max-width: 480px) {
+        .container {
+          max-width: 320px;
+          gap: 20px;
+        }
+        
+        .logo {
+          max-width: 240px;
+        }
+        
+        h1 {
+          font-size: 36px;
+        }
+        
+        .copy {
+          font-size: 16px;
+        }
+        
+        .coming-soon {
+          max-width: 280px;
+        }
       }
     </style>
     </head>
@@ -120,7 +130,9 @@
         That's why Cockblock is, and will always be a free tool.
       </p>
 
-      <a class="cta" href="mailto:hello@cockblock.art">Coming soon…</a>
+      <div class="coming-soon">
+        <img src="./assets/images/group-32.png" alt="Coming Soon" />
+      </div>
     </div>
     </body>
   </html>
