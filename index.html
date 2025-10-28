@@ -1,7 +1,7 @@
 <!doctype html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Cockblock.art</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,10 +23,112 @@
       body {
         display: flex;
         flex-direction: column;
+        min-height: 100vh;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      /* Navigation */
+      .nav-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #291a01;
+        z-index: 1000;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      
+      .nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      
+      .nav-logo {
+        width: 120px;
+        height: auto;
+      }
+      
+      .menu-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      
+      .menu-toggle span {
+        width: 30px;
+        height: 3px;
+        background: #ff1493;
+        display: block;
+        transition: all 0.3s ease;
+      }
+      
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+      }
+      
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+      }
+      
+      .nav-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background: #291a01;
+        padding: 0 20px;
+      }
+      
+      .nav-menu.active {
+        max-height: 300px;
+        padding: 20px;
+      }
+      
+      .nav-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      
+      .nav-menu li {
+        margin: 15px 0;
+      }
+      
+      .nav-menu a {
+        color: #FFE7E0;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 600;
+        transition: color 0.2s ease;
+      }
+      
+      .nav-menu a:hover,
+      .nav-menu a.active {
+        color: #ff1493;
+      }
+      
+      /* Main content */
+      .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        min-height: 100vh;
-        padding: 20px;
+        padding: 100px 20px 20px;
         box-sizing: border-box;
       }
       
@@ -38,7 +140,6 @@
         flex-direction: column;
         align-items: center;
         gap: 20px;
-        padding: 0 20px;
       }
       
       .logo {
@@ -59,7 +160,6 @@
         text-align: center;
         font-family: "Archivo Narrow";
       }
-      
       
       .copy {
         color: #FFE7E0;
@@ -95,12 +195,10 @@
         display: block;
       }
       
-      
       @media (max-width: 480px) {
         .container {
           max-width: 320px;
           gap: 16px;
-          padding: 0 16px;
         }
         
         .logo {
@@ -118,35 +216,71 @@
         .coming-soon {
           max-width: 280px;
         }
+        
+        .nav-logo {
+          width: 100px;
+        }
       }
     </style>
-    </head>
-    <body>
-    <div class="container">
-      <img class="logo" src="./assets/images/group-31.png" alt="Cockblock logo" />
-
-      <h1>Meet Cockblock.</h1>
-
-      <p class="copy">
-        The watermark that protects your art from AI learning. Cockblock is not only a tool that sticks a spanner in the works, it's a badge that shows we stand on the side of humanity.
-      </p>
-
-      <p class="copy">
-        <span class="highlight">How does it work?</span> AI rejects nudity, so we've created the first ever penis watermark to paste across your art.
-      </p>
-
-      <p class="copy">
-        <span class="highlight">Who are we?</span> We're a collection of creative people who are pro-artist, pro regulation, pro fair-use.
-      </p>
-
-      <p class="copy">
-        That's why Cockblock is, and will always be a free tool.
-      </p>
-
-      <div class="coming-soon">
-        <img src="./assets/images/group-32.png" alt="Coming Soon" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+      <div class="nav-header">
+        <img class="nav-logo" src="./assets/images/group-31.png" alt="Cockblock logo" />
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-    </div>
-    </body>
-  </html>
-  
+      <div class="nav-menu" id="navMenu">
+        <ul>
+          <li><a href="#info" class="active">Info</a></li>
+          <li><a href="#upload">Upload</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main content (Info page) -->
+    <main class="main-content">
+      <div class="container">
+        <img class="logo" src="./assets/images/group-31.png" alt="Cockblock logo" />
+
+        <h1>Meet Cockblock.</h1>
+
+        <p class="copy">
+          The watermark that protects your art from AI learning. Cockblock is not only a tool that sticks a spanner in the works, it's a badge that shows we stand on the side of humanity.
+        </p>
+
+        <p class="copy">
+          <span class="highlight">How does it work?</span> AI rejects nudity, so we've created the first ever penis watermark to paste across your art.
+        </p>
+
+        <p class="copy">
+          <span class="highlight">Who are we?</span> We're a collection of creative people who are pro-artist, pro regulation, pro fair-use.
+        </p>
+
+        <p class="copy">
+          That's why Cockblock is, and will always be a free tool.
+        </p>
+
+        <div class="coming-soon">
+          <img src="./assets/images/group-32.png" alt="Coming Soon" />
+        </div>
+      </div>
+    </main>
+
+    <script>
+      function toggleMenu() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      }
+    </script>
+  </body>
+</html>
