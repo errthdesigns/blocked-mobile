@@ -57,51 +57,43 @@
         background: none;
         border: none;
         cursor: pointer;
-        padding: 10px;
+        padding: 0;
+        width: 50px;
+        height: 50px;
+        font-size: 40px;
+        color: #ff1493;
         display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-      
-      .menu-toggle span {
-        width: 30px;
-        height: 3px;
-        background: #ff1493;
-        display: block;
-        transition: all 0.3s ease;
-      }
-      
-      .menu-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(8px, 8px);
-      }
-      
-      .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-      }
-      
-      .menu-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(8px, -8px);
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
       }
       
       .nav-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #291a01;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease;
-        background: #291a01;
-        padding: 0 20px;
+        z-index: 999;
       }
       
       .nav-menu.active {
-        max-height: 300px;
-        padding: 20px;
+        max-height: 100vh;
       }
       
       .nav-menu ul {
         list-style: none;
-        padding: 0;
+        padding: 100px 20px 20px;
         margin: 0;
         max-width: 400px;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
       }
       
       .nav-menu li {
@@ -228,11 +220,7 @@
     <nav class="nav-container">
       <div class="nav-header">
         <img class="nav-logo" src="./assets/images/group-31.png" alt="Cockblock logo" />
-        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">✕</button>
       </div>
       <div class="nav-menu" id="navMenu">
         <ul>
