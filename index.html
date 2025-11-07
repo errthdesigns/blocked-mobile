@@ -1,152 +1,40 @@
-<!doctype html>
+
+  <!DOCTYPE html>
   <html lang="en">
     <head>
       <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Cockblock.art</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script>(function(){try{if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister();});});}if(window.caches&&caches.keys){caches.keys().then(function(keys){return Promise.all(keys.map(function(k){return caches.delete(k);}));});}}catch(e){}})();</script>
-    <style>
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background: #291a01;
-        color: #f4e5d3;
-        font-family: "Archivo Narrow", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeLegibility;
-      }
-      
-      body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        padding: 20px;
-        box-sizing: border-box;
-      }
-      
-      .container {
-        width: 100%;
-        max-width: 400px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 0 20px;
-      }
-      
-      .logo {
-        width: 100%;
-        max-width: 280px;
-        height: auto;
-        margin-bottom: 8px;
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-      }
-      
-      h1 {
-        color: #ff1493;
-        font-size: 48px;
-        font-weight: 700;
-        line-height: normal;
-        margin: 0 0 8px 0;
-        letter-spacing: 0.8px;
-        text-align: center;
-        font-family: "Archivo Narrow";
-      }
-      
-      
-      .copy {
-        color: #FFE7E0;
-        text-align: center;
-        font-family: "Archivo Narrow";
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        letter-spacing: 0.8px;
-        margin: 0 0 16px 0;
-        max-width: 100%;
-        width: 100%;
-      }
-      
-      .highlight {
-        color: #ff1493;
-        font-weight: 700;
-        text-decoration: underline;
-        text-decoration-thickness: 2px;
-        text-underline-offset: 3px;
-      }
-      
-      .coming-soon {
-        width: 100%;
-        max-width: 320px;
-        margin-top: 16px;
-      }
-      
-      .coming-soon img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-      
-      
-      @media (max-width: 480px) {
-        .container {
-          max-width: 320px;
-          gap: 16px;
-          padding: 0 16px;
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <title>Cockblock Redesign</title>
+      <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
         }
-        
-        .logo {
-          max-width: 240px;
+        html, body {
+          width: 100%;
+          max-width: 480px;
+          margin: 0 auto;
+          overflow-x: hidden;
         }
-        
-        h1 {
-          font-size: 36px;
+        #root {
+          width: 100%;
+          max-width: 480px;
+          margin: 0 auto;
         }
-        
-        .copy {
-          font-size: 18px;
+        @media (min-width: 481px) {
+          body {
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+          }
         }
-        
-        .coming-soon {
-          max-width: 280px;
-        }
-      }
-    </style>
+      </style>
+      <script type="module" crossorigin src="/assets/index-CgivBGK0.js"></script>
+      <link rel="stylesheet" crossorigin href="/assets/index-D90RdSi0.css">
     </head>
+
     <body>
-    <div class="container">
-      <img class="logo" src="./assets/images/group-31.png" alt="Cockblock logo" />
-
-      <h1>Meet Cockblock.</h1>
-
-      <p class="copy">
-        The watermark that protects your art from AI learning. Cockblock is not only a tool that sticks a spanner in the works, it's a badge that shows we stand on the side of humanity.
-      </p>
-
-      <p class="copy">
-        <span class="highlight">How does it work?</span> AI rejects nudity, so we've created the first ever penis watermark to paste across your art.
-      </p>
-
-      <p class="copy">
-        <span class="highlight">Who are we?</span> We're a collection of creative people who are pro-artist, pro regulation, pro fair-use.
-      </p>
-
-      <p class="copy">
-        That's why Cockblock is, and will always be a free tool.
-      </p>
-
-      <div class="coming-soon">
-        <img src="./assets/images/group-32.png" alt="Coming Soon" />
-      </div>
-    </div>
+      <div id="root"></div>
     </body>
   </html>
   
