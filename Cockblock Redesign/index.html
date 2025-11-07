@@ -1,0 +1,39 @@
+
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <title>Cockblock Redesign</title>
+      <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        html, body {
+          width: 100%;
+          max-width: 480px;
+          margin: 0 auto;
+          overflow-x: hidden;
+        }
+        #root {
+          width: 100%;
+          max-width: 480px;
+          margin: 0 auto;
+        }
+        @media (min-width: 481px) {
+          body {
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+          }
+        }
+      </style>
+    </head>
+
+    <body>
+      <div id="root"></div>
+      <script type="module" src="/src/main.tsx"></script>
+    </body>
+  </html>
+  
